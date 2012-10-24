@@ -3,6 +3,7 @@ package action;
 import java.io.*;
 
 import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 @Path("action")
@@ -10,7 +11,8 @@ public class ActionResource {
 
 	static final int MAX_ENTRY_RETURN = 50;
 
-	static final String LIST_PATH = "C:\\Users\\Administrator\\Documents\\GitHub\\ActionData";
+	//static final String LIST_PATH = "C:\\Users\\Administrator\\Documents\\GitHub\\ActionData";
+	static final String LIST_PATH = "D:\\Projects\\NetSci\\ActionData";
 	//TODO: put this config into a file
 
 	/*
@@ -18,14 +20,14 @@ public class ActionResource {
 	 */
 	@GET
 	@Path("list")
-	@Produces("text/xml")
+	@Produces(MediaType.TEXT_XML)
 	public String getActionList() {
 		return getXMLFile(LIST_PATH+"list.xml");
 	}
 
 	@GET
 	@Path("{id}/detail")
-	@Produces("text/xml")
+	@Produces(MediaType.TEXT_XML)
 	public String getActionDescription(@PathParam("id") String id) {
 		return getXMLFile(LIST_PATH+"actions/"+id+"/define.xml");
 	}
