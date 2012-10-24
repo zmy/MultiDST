@@ -10,7 +10,8 @@ public class ActionResource {
 
 	static final int MAX_ENTRY_RETURN = 50;
 
-	static final String LIST_PATH = "D:/Projects/NetSci/ActionData/"; //TODO: put this config into a file
+	static final String LIST_PATH = "C:\\Users\\Administrator\\Documents\\GitHub\\ActionData";
+	//TODO: put this config into a file
 
 	/*
 	 * returns a xml list of actions
@@ -30,12 +31,12 @@ public class ActionResource {
 	}
 
 	@GET
-	@Path("{id}/res/{res}")
-	public Response getActionAttachment(@PathParam("id") String id) {
+	@Path("{id}/res/{name}")
+	public Response getActionAttachment(@PathParam("id") String id, @PathParam("name") String name) {
 		;
 		return null;
 	}
-	
+
 	String getXMLFile(String path) {
 		File file = new File(path);
 		BufferedReader reader = null;
